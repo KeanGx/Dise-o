@@ -1,0 +1,200 @@
+# Dise-ohtml{
+  scroll-behavior: smooth;
+}
+body{display: flex; flex-flow: column;font-family: 'Oswald', sans-serif; margin:0;}
+header{
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 5em;
+  display:flex;
+  flex-flow: row;
+  z-index: 2;
+  background-color: rgb(106, 0, 242);
+}
+header .icon svg{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 3em;
+  left: 1em;
+  height: 100%;
+}
+header .icon:hover svg rect{
+fill:white;
+}
+header #icon.expand rect{
+  transform:scaleX(1);
+}
+header #icon.contract rect{
+  fill:white;
+  transform:scaleX(1);
+}
+header #icon.contract #rect1{
+  transform:scaleX(0.7);
+}
+header #icon.contract #rect2{
+  transform:scaleX(0.9);
+}
+header #icon.contract #rect3{
+  transform:scaleX(0.5);
+}
+
+header .icon:hover svg #rect1{
+  animation-name: rect1;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in-out;
+}
+@keyframes rect1 {
+  to{
+    transform:scaleX(0.7);
+  }
+
+}
+header .icon:hover svg #rect2{
+  animation-name: rect2;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in-out;
+}
+@keyframes rect2 {
+  to{
+    transform:scaleX(0.9);
+  }
+}
+header .icon:hover svg #rect3{
+  animation-name: rect3;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in-out;
+}
+@keyframes rect3 {
+  to{
+    transform:scaleX(0.5);
+  }
+}
+
+header .cabecera{ font-size: 2em; color: white; width: 100%; display: flex; align-items: center; justify-content: center;}
+header #menu.hide{
+  display: flex;
+  position: absolute;
+  top: 100%;
+  z-index:0;
+  left:-20em;
+  background-color: rgb(100, 150, 200);
+  height: 30em; width: 20em;
+  opacity: 0;
+}
+header #menu.show{
+  display: flex;
+  position: absolute;
+  top: 100%;
+  background-color:#F1F1F1;
+  height: 30em; width: 20em;
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes show {
+  to{
+    left:0;
+    opacity: 0.9;
+  }
+}
+main{display: flex; flex-flow: column; width: 100%;align-items: center;justify-content: center;z-index: 1}
+main .overview{display: flex; flex-flow: column; align-items: center;position: relative;}
+main .overview img{width: 100%;height: 50%;}
+main .overview .fas{ color: white;opacity: 0.3;transform: scale(4);position: absolute; align-items: center;bottom:25%;  animation-name: arrow; animation-duration: 1s; animation-iteration-count: infinite;}
+main .overview .fas:hover{ opacity: 1}
+@keyframes arrow {
+  to{
+    bottom: 22%;
+  }
+}
+main .overview #contenido{
+  position: absolute;
+  bottom: 5em;
+}
+main .wrapper {display:flex;flex-flow: column; width: 90%; height: auto; align-items: center; justify-content: center; margin: 1em}
+main .wrapper:first-of-type{margin-top: 5em;}
+main .wrapper .paso{display:flex;flex-flow: row; width: 90%; height: auto; align-items: center; justify-content: center; margin: 1em}
+@media(max-width: 741px) {
+  html{font-size: 0.8em;}
+  main .wrapper .separador{order:1;}
+   main .wrapper .paso{display:flex;flex-flow: column; width: 90%; height: auto; align-items: center; justify-content: center; margin: 1em; order: 2;}
+   main .wrapper .paso .imagen{width: 90%; height: auto; align-items: center; justify-content: center;margin: 1em;}
+   main .wrapper .paso .imagen img{width: 100%; }
+   main .wrapper .paso .descripcion{width: 90%; padding: 2em;}
+ }
+main .wrapper:nth-child(even) .paso{
+  background-color: rgb(255, 150, 100);
+}
+main .wrapper:nth-child(odd) .paso{
+  background-color: rgb(100, 150, 200);
+}
+@media(min-width: 742px) {
+  main .wrapper .paso{order: 2; }
+  main .wrapper .paso .imagen{width: 50%; height: auto; align-items: center; justify-content: center;margin: 1em;}
+  main .wrapper .paso .imagen img{width: 100%;}
+  main .wrapper .paso .descripcion{width: 50%; padding: 2em;}
+  main .wrapper:nth-child(even) .paso .imagen{order: 2;}
+}
+main .wrapper .separador{
+  font-size: 1.7em;
+  text-align: center;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+main .wrapper .separador .linea{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+  width: 40%;
+  height: 0.2em;
+  margin: 1em;
+  background-color: black;
+}
+main .wrapper:nth-child(odd) .paso:hover + .separador .linea{
+  animation-name: separadorOdd;
+  animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes separadorOdd {
+  50%{
+    transform: scale(0.1,1);
+    opacity: 0;
+  }
+  100%{
+    transform: scale(1,1);
+    background-color: rgb(100, 150, 200);
+    opacity: 1;
+  }
+}
+  main .wrapper:nth-child(even) .paso:hover + .separador .linea{
+    animation-name: separadorEven;
+    animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes separadorEven {
+    50%{
+      transform: scale(0.1,1);
+      opacity: 0;
+    }
+    100%{
+      transform: scale(1,1);
+      background-color: rgb(255, 150, 100);
+      opacity: 1;
+    }
+}
