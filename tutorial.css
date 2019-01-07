@@ -1,18 +1,27 @@
-html{
+html {
   scroll-behavior: smooth;
 }
-body{display: flex; flex-flow: column;font-family: 'Oswald', sans-serif; margin:0;}
-header{
+
+
+body {
+  display: flex;
+  flex-flow: column;
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+}
+
+header {
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   height: 5em;
-  display:flex;
+  display: flex;
   flex-flow: row;
   z-index: 2;
   background-color: rgb(106, 0, 242);
 }
-header .icon svg{
+
+header .icon svg {
   display: flex;
   align-items: center;
   position: absolute;
@@ -20,130 +29,493 @@ header .icon svg{
   left: 1em;
   height: 100%;
 }
-header .icon:hover svg rect{
-fill:white;
-}
-header #icon.expand rect{
-  transform:scaleX(1);
-}
-header #icon.contract rect{
-  fill:white;
-  transform:scaleX(1);
-}
-header #icon.contract #rect1{
-  transform:scaleX(0.7);
-}
-header #icon.contract #rect2{
-  transform:scaleX(0.9);
-}
-header #icon.contract #rect3{
-  transform:scaleX(0.5);
+
+header .icon:hover svg rect {
+  fill: white;
 }
 
-header .icon:hover svg #rect1{
+header #icon.expand rect {
+  transform: scaleX(1);
+}
+
+header #icon.contract rect {
+  fill: white;
+  transform: scaleX(1);
+}
+
+header #icon.contract #rect1 {
+  transform: scaleX(0.7);
+}
+
+header #icon.contract #rect2 {
+  transform: scaleX(0.9);
+}
+
+header #icon.contract #rect3 {
+  transform: scaleX(0.5);
+}
+
+header .icon:hover svg #rect1 {
   animation-name: rect1;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in-out;
 }
-@keyframes rect1 {
-  to{
-    transform:scaleX(0.7);
-  }
 
+@keyframes rect1 {
+  to {
+    transform: scaleX(0.7);
+  }
 }
-header .icon:hover svg #rect2{
+
+header .icon:hover svg #rect2 {
   animation-name: rect2;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in-out;
 }
+
 @keyframes rect2 {
-  to{
-    transform:scaleX(0.9);
+  to {
+    transform: scaleX(0.9);
   }
 }
-header .icon:hover svg #rect3{
+
+header .icon:hover svg #rect3 {
   animation-name: rect3;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in-out;
 }
+
 @keyframes rect3 {
-  to{
-    transform:scaleX(0.5);
+  to {
+    transform: scaleX(0.5);
   }
 }
 
-header .cabecera{ font-size: 2em; color: white; width: 100%; display: flex; align-items: center; justify-content: center;}
-header #menu.hide{
+header .cabecera {
+  font-size: 2em;
+  color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header #menu.hide {
   display: flex;
   position: absolute;
   top: 100%;
-  z-index:0;
-  left:-20em;
+  z-index: 0;
+  left: -20em;
   background-color: rgb(100, 150, 200);
-  height: 30em; width: 20em;
+  height: 30em;
+  width: 20em;
   opacity: 0;
 }
-header #menu.show{
+
+header #menu.show {
   display: flex;
   position: absolute;
   top: 100%;
-  background-color:#F1F1F1;
-  height: 30em; width: 20em;
+  background-color: #F1F1F1;
+  height: 30em;
+  width: 20em;
   animation-name: show;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
+
 @keyframes show {
-  to{
-    left:0;
+  to {
+    left: 0;
     opacity: 0.9;
   }
 }
-main{display: flex; flex-flow: column; width: 100%;align-items: center;justify-content: center;z-index: 1}
-main .overview{display: flex; flex-flow: column; align-items: center;position: relative;}
-main .overview img{width: 100%;height: 50%;}
-main .overview .fas{ color: white;opacity: 0.3;transform: scale(4);position: absolute; align-items: center;bottom:25%;  animation-name: arrow; animation-duration: 1s; animation-iteration-count: infinite;}
-main .overview .fas:hover{ opacity: 1}
+
+main {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 1
+}
+
+main .overview {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+  height: 100%
+}
+main .overview>.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: solid 3px #6A0000;
+  position: absolute;
+  z-index: 3;
+  top: 30%;
+  font-size: 1em;
+  padding: 1em;
+}
+
+main .overview>.titulo>p {
+  align-items: center;
+  justify-content: center;
+  border: solid 3px #6A0000;
+  color: rgba(106, 0, 0, 1);
+  font-size: 5em;
+  padding: 0 1em;
+  margin: 0;
+}
+/*main .overview>.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  background-image: url('../Media/Secundario/Tutorial 2/IMG_20170330_094118.jpg');
+  border: solid 3px black;
+  position: absolute;
+  z-index: 3;
+  top: 30%;
+  font-size: 1em;
+  padding: 1em;
+  color: blgoldck;
+  mix-blend-mode: overlay;
+}
+
+main .overview>.titulo>p {
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: multiply;
+  background-color: white;
+  border: solid 3px rgba(0, 0, 0, 1);
+  text-shadow: white 1px 0px, white -1px 0px, white 0px -1px, white 0px 1px;
+  color: black;
+  font-size: 5em;
+  padding: 0 1em;
+  margin: 0;
+}*/
+
+main .overview img {
+  width: 100%;
+  height: 50%;
+  z-index: 1;
+}
+
+main .overview .fa-chevron-circle-down {
+  color: white;
+  opacity: 0.3;
+  transform: scale(4);
+  position: absolute;
+  align-items: center;
+  bottom: 25%;
+  animation-name: arrow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  z-index: 1;
+}
+
+main .overview .fa-chevron-circle-down:hover {
+  opacity: 1
+}
+
 @keyframes arrow {
-  to{
+  to {
     bottom: 22%;
   }
 }
-main .overview #contenido{
+
+main .fa-chevron-circle-up {
+  color: green;
+  opacity: 0.5;
+  transform: scale(4);
+  position: fixed;
+  right: 4%;
+  bottom: 6%;
+  z-index: 0;
+}
+
+main .fa-chevron-circle-up:hover {
+  opacity: 1
+}
+
+main .overview #contenido {
   position: absolute;
   bottom: 5em;
 }
-main .wrapper {display:flex;flex-flow: column; width: 90%; height: auto; align-items: center; justify-content: center; margin: 1em}
-main .wrapper:first-of-type{margin-top: 5em;}
-main .wrapper .paso{display:flex;flex-flow: row; width: 90%; height: auto; align-items: center; justify-content: center; margin: 1em}
+
+main .wrapper {
+  display: flex;
+  flex-flow: column;
+  width: 90%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin: 1em
+}
+
+main .wrapper:first-of-type {
+  margin-top: 5em;
+}
+
+main .wrapper .paso {
+  display: flex;
+  flex-flow: row;
+  width: 90%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin: 1em
+}
+
 @media(max-width: 741px) {
-  html{font-size: 0.8em;}
-  main .wrapper .separador{order:1;}
-   main .wrapper .paso{display:flex;flex-flow: column; width: 90%; height: auto; align-items: center; justify-content: center; margin: 1em; order: 2;}
-   main .wrapper .paso .imagen{width: 90%; height: auto; align-items: center; justify-content: center;margin: 1em;}
-   main .wrapper .paso .imagen img{width: 100%; }
-   main .wrapper .paso .descripcion{width: 90%; padding: 2em;}
- }
-main .wrapper:nth-child(even) .paso{
+  html {
+    font-size: 0.8em;
+  }
+  main .overview>.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: solid 3px #6A0000;
+    position: absolute;
+    z-index: 3;
+    top: 30%;
+    font-size: 1em;
+    padding: 1em;
+  }
+
+  main .overview>.titulo>p {
+    align-items: center;
+    justify-content: center;
+    border: solid 3px #6A0000;
+    color: rgba(106, 0, 0, 1);
+    font-size: 5em;
+    padding: 0 1em;
+    margin: 0;
+  }
+
+  main .wrapper .separador {
+    order: 1;
+  }
+
+  main .wrapper .paso {
+    display: flex;
+    flex-flow: column;
+    width: 90%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    order: 2;
+  }
+
+  main .wrapper .paso .imagen {
+    width: 90%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    transition: 2s;
+  }
+
+  main .wrapper .paso .imagen:hover {
+    width: 120%;
+  }
+
+  main .wrapper .paso .imagen img {
+
+    position: relative;
+    width: 100%;
+  }
+
+  main .wrapper .paso .imagen .expand{
+    display: flex;
+    position: absolute;
+    bottom: 1.2em;
+  }
+
+  main .wrapper .paso .descripcion {
+    width: 90%;
+    padding: 2em;
+  }
+
+}
+
+@media (max-width: 960px) {
+  html {
+    font-size: 0.9em;
+  }
+
+  main .overview>.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: solid 3px #6A0000;
+    position: absolute;
+    z-index: 3;
+    top: 30%;
+    font-size: 1em;
+    padding: 1em;
+  }
+
+  main .overview>.titulo>p {
+    align-items: center;
+    justify-content: center;
+    border: solid 3px #6A0000;
+    color: rgba(106, 0, 0, 1);
+    font-size: 5em;
+    padding: 0 1em;
+    margin: 0;
+  }
+  main .wrapper .separador {
+    order: 1;
+  }
+
+  main .wrapper .paso {
+    display: flex;
+    flex-flow: column;
+    width: 90%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    order: 2;
+  }
+
+  main .wrapper .paso .imagen {
+    position: relative;
+    width: 90%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    transition: 2s;
+  }
+
+  main .wrapper .paso .imagen.expandImg {
+    width: 120%;
+  }
+
+  main .wrapper .paso .imagen img {
+    width: 100%;
+  }
+  main .wrapper .paso .imagen .expandIcon{
+      display: flex;
+      position: absolute;
+      right: 1em;
+      bottom: 1em;
+  }
+  main .wrapper .paso .imagen .expandIcon:hover{
+      cursor: pointer;
+  }
+  main .wrapper .paso .imagen .expandIcon span{
+    color: white;
+    transform: scale(1.5);
+  }
+  main .wrapper:nth-child(even) .paso .imagen .expandIcon:hover span{
+    color: rgb(255, 150, 100);
+  }
+  main .wrapper:nth-child(odd) .paso .imagen .expandIcon:hover span{
+    color: rgb(100, 150, 200);
+  }
+
+  main .wrapper .paso .descripcion {
+    width: 90%;
+    padding: 2em;
+  }
+}
+
+main .wrapper:nth-child(even) .paso {
   background-color: rgb(255, 150, 100);
 }
-main .wrapper:nth-child(odd) .paso{
+
+main .wrapper:nth-child(odd) .paso {
   background-color: rgb(100, 150, 200);
 }
-@media(min-width: 742px) {
-  main .wrapper .paso{order: 2; }
-  main .wrapper .paso .imagen{width: 50%; height: auto; align-items: center; justify-content: center;margin: 1em;}
-  main .wrapper .paso .imagen img{width: 100%;}
-  main .wrapper .paso .descripcion{width: 50%; padding: 2em;}
-  main .wrapper:nth-child(even) .paso .imagen{order: 2;}
+
+@media(min-width: 960px) {
+  main .wrapper .paso {
+    order: 2;
+  }
+  main .overview>.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: solid 3px #6A0000;
+    position: absolute;
+    z-index: 3;
+    top: 30%;
+    font-size: 1em;
+    padding: 1em;
+  }
+
+  main .overview>.titulo>p {
+    align-items: center;
+    justify-content: center;
+    border: solid 3px #6A0000;
+    color: rgba(106, 0, 0, 1);
+    font-size: 7em;
+    padding: 0 1em;
+    margin: 0;
+  }
+  main .wrapper .paso .imagen {
+    position: relative;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 1em;
+    transition: 2s;
+  }
+
+  main .wrapper .paso .imagen.expandImg {
+    width: 250%;
+  }
+
+  main .wrapper .paso .imagen img {
+    width: 100%;
+  }
+  main .wrapper .paso .imagen .expandIcon{
+      display: flex;
+      position: absolute;
+      right: 1em;
+      bottom: 1em;
+  }
+  main .wrapper .paso .imagen .expandIcon:hover{
+      cursor: pointer;
+  }
+  main .wrapper .paso .imagen .expandIcon span{
+    color: white;
+    transform: scale(1.5);
+  }
+  main .wrapper:nth-child(even) .paso .imagen .expandIcon:hover span{
+    color: rgb(255, 150, 100);
+  }
+  main .wrapper:nth-child(odd) .paso .imagen .expandIcon:hover span{
+    color: rgb(100, 150, 200);
+  }
+  main .wrapper .paso .descripcion {
+    width: 50%;
+    padding: 2em;
+  }
+
+  main .wrapper:nth-child(even) .paso .imagen {
+    order: 2;
+  }
 }
-main .wrapper .separador{
+
+main .wrapper .separador {
   font-size: 1.7em;
   text-align: center;
   display: flex;
@@ -152,7 +524,8 @@ main .wrapper .separador{
   justify-content: center;
   width: 100%;
 }
-main .wrapper .separador .linea{
+
+main .wrapper .separador .linea {
   display: block;
   align-items: center;
   justify-content: center;
@@ -162,39 +535,45 @@ main .wrapper .separador .linea{
   margin: 1em;
   background-color: black;
 }
-main .wrapper:nth-child(odd) .paso:hover + .separador .linea{
+
+main .wrapper:nth-child(odd) .paso:hover+.separador .linea {
   animation-name: separadorOdd;
   animation-duration: 2s;
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
+
 @keyframes separadorOdd {
-  50%{
-    transform: scale(0.1,1);
+  50% {
+    transform: scale(0.1, 1);
     opacity: 0;
   }
-  100%{
-    transform: scale(1,1);
+
+  100% {
+    transform: scale(1, 1);
     background-color: rgb(100, 150, 200);
     opacity: 1;
   }
 }
-  main .wrapper:nth-child(even) .paso:hover + .separador .linea{
-    animation-name: separadorEven;
-    animation-duration: 2s;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+
+main .wrapper:nth-child(even) .paso:hover+.separador .linea {
+  animation-name: separadorEven;
+  animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes separadorEven {
+  50% {
+    transform: scale(0.1, 1);
+    opacity: 0;
   }
-  @keyframes separadorEven {
-    50%{
-      transform: scale(0.1,1);
-      opacity: 0;
-    }
-    100%{
-      transform: scale(1,1);
-      background-color: rgb(255, 150, 100);
-      opacity: 1;
-    }
+
+  100% {
+    transform: scale(1, 1);
+    background-color: rgb(255, 150, 100);
+    opacity: 1;
+  }
 }
