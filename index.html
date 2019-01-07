@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="Estilos/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <title>Proyecto Multimedia</title>
+</head>
+
+<body>
+  <header id="header">
+    <div class="icon" onclick="displayMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 165">
+        <g id="Layer_2" data-name="Layer 2">
+          <g id="icon" class="expand" data-name="Layer 1">
+            <rect x="0.5" width="200" height="25" />
+            <rect id="rect1" y="45" width="200" height="25" />
+            <rect id="rect2" y="90" width="200" height="25" />
+            <rect id="rect3" y="135" width="200" height="25" />
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="cabecera">PROYECTO MULTIMEDIA</div>
+    <div id="menu" class="hide">
+      <div class="home">
+        <p>HOME</p>
+        <a href="">INICIO</a>
+        <a href="#tutoriales">TUTORIALES</a>
+        <a href="#video" onclick="video();">VIDEO</a>
+      </div>
+      <div class="tutoriales">
+        <p>PROYECTOS</p>
+        <a href="Paginas Secundarias/tutorial1.html">PROYECTO DE GONZALO</a>
+        <a href="Paginas Secundarias/tutorial2.html">PROYECTO DE KYRIL</a>
+        <a href="Paginas Secundarias/tutorial3.html">PROYECTO DE PABLO</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="galeria" id="tutoriales">
+      <div class="imagen">
+        <img src="Media/Principal/4kwv6r4o0o121.jpg" alt="as">
+        <span class="box">
+          <a href="Paginas Secundarias/tutorial1.html">Proyecto de Gonzalo Granizo</a>
+          <p>Tutorial de recorte de imagen, funcionalidad de las capas y uso de filtros</p>
+        </span>
+      </div>
+      <div class="imagen">
+        <img src="Media/Principal/dpqKdr8.jpg">
+        <span class="box">
+          <a href="Paginas Secundarias/tutorial2.html">Proyecto de Kyril Kean</a>
+          <p>Tutorial de cómo combinar dos imágenes y oscurecer el color</p>
+        </span>
+      </div>
+      <div class="imagen">
+        <img src="Media/Principal/main.png">
+        <span class="box"><a href="Paginas Secundarias/tutorial3.html">Proyecto de Pablo Asiain</a></span>
+      </div>
+
+    </div>
+
+    <div class="video">
+      <video controls id="video">
+        <source src="Media/Video/video.mp4" type="video/mp4">
+      </video>
+    </div>
+
+  </main>
+  <footer>
+    <div class="licencia">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
+        <img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+        <span>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Licencia Creative Commons Atribución 4.0 Internacional</a></span>
+    </div>
+    <p>Proyecto realizado por alumnos del <a href="https://www.iestetuan.es/cmsj/index.php" target="_blank">Ies Tetuan de las Victorias</a></p>
+    <div class="sitios">
+      <a href="https://www.instagram.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/600px-Instagram_logo_2016.svg.png"></a>
+      <a href="https://www.twitter.com/" target="_blank"><img src="https://cdn.pixabay.com/photo/2015/03/10/17/30/twitter-667462_960_720.png"></a>
+      <a href="https://www.linkedin.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"></a>
+    </div>
+  </footer>
+  <script type="text/javascript">
+  function displayMenu() {
+    if (document.getElementById('menu').classList.contains('hide') && document.getElementById('icon').classList.contains('expand')) {
+      document.getElementById('icon').classList.remove('expand');
+      document.getElementById('icon').classList.add('contract');
+      document.getElementById('menu').classList.remove('hide');
+      document.getElementById('menu').classList.add('show');
+    } else if (document.getElementById('menu').classList.contains('show')&& document.getElementById('icon').classList.contains('contract')) {
+      document.getElementById('icon').classList.remove('contract');
+      document.getElementById('icon').classList.add('expand');
+      document.getElementById('menu').classList.remove('show');
+      document.getElementById('menu').classList.add('hide');
+    }
+  }
+  function video() {
+    var elem = document.getElementById('video');
+    elem.requestFullscreen();
+  }
+  </script>
+</body>
+
+</html>
